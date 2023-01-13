@@ -1,0 +1,113 @@
+::selection{
+    color: rgb(255, 139, 139);
+}
+*{
+    margin: 0 0;
+    font-family: '나눔고딕';
+    background-clip:content-box;
+    box-sizing: content-box;
+    overflow: hidden;
+ }
+
+
+body{
+    background-color: black;
+}
+blur{
+    margin: 0;
+    display: block;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 0;
+    height: 100vh;
+}
+slogan{
+    z-index: 1;
+    position: absolute;
+    display: block;
+    height: 55px;
+    font-size: 36px;
+    font-weight: 600;
+    color: white;
+    left:50%;top:50%;
+    transform: translate(-50%,-100px);
+}
+middleslogan{
+    z-index: 1;
+    position: absolute;
+    display: block;
+    font-size: 16px;
+    font-weight: 100;
+    color: white;
+    height: 20px;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-35px);
+}
+searchbar{
+    z-index: 1;
+    position: absolute;
+    align-content: center;
+    display:inline-block;
+    background-color: white;
+    left:50%;
+    width: 460px;
+    height: 60px;
+    border-radius: 100px;
+    top:50%;
+    transform: translate(-50%,15px);
+}
+searchbar input{
+    z-index: 1;
+    display:inline-block;
+    background-color: #FFFFFF;
+    border: 0px;
+    padding: 0px;
+    line-height: 16px;
+    width: 376px;
+    height: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 16px;
+    outline: none;
+}
+#glass{
+    z-index: 1;
+    display:inline-block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    margin-top: 18px;
+    background-size: 24px 24px;
+    background-image: url('/dodbogy.png');
+}
+
+.UnderHash{
+    z-index: 1;
+    font-family: '나눔고딕';
+    justify-content:center;
+    transform: translate(-50%,85vh);
+    left: 50%;
+    display: flex;
+    position: absolute;
+    font-size: 36px;
+    font-weight: 500;
+    color: black;
+    text-shadow: -1px 0 #FFF, 0 1px #FFF, 1px 0 #FFF, 0 -1px #FFF;
+}
+.UnderHash *{
+    z-index: 1;
+    width: 200px;
+    height: 55px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.Gallery *, .dummy_Gallery *{
+    overflow: hidden;
+    display: flexbox;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
