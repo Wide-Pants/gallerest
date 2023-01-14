@@ -14,6 +14,7 @@ body{
     background-color: black;
 }
 blur{
+    margin: 0px;
     margin: 0;
     display: block;
     background-color: black;
@@ -88,17 +89,15 @@ searchbar input{
     justify-content:center;
     transform: translate(-50%,85vh);
     left: 50%;
-    display: flex;
+    display: block;
     position: absolute;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 500;
     color: black;
     text-shadow: -1px 0 #FFF, 0 1px #FFF, 1px 0 #FFF, 0 -1px #FFF;
 }
 .UnderHash *{
     z-index: 1;
-    width: 200px;
-    height: 55px;
     cursor: pointer;
     text-align: center;
 }

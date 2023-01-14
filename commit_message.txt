@@ -1,0 +1,2 @@
+Docs pics and dummies' array is modified.
+Feat an animation about pictures of main page.

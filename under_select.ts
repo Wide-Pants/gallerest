@@ -1,13 +1,15 @@
-const UnderHash :any  = document.querySelectorAll(`.UnderHash`);
+const UnderHash :any  = document.querySelectorAll(`.UnderHash *`);
 
 var prev:any;
 var dur_pick_anime : boolean = false;
 
 
 UnderHash.forEach( (rank) => {
+                rank.style.margin=`0px ${((200-document.getElementById(`${rank.id}`)?.offsetWidth))/2}px`
                 rank.addEventListener(`click`,(e)=>{
                     console.log(dur_pick_anime)
                     if(!dur_pick_anime && prev != e.target){
+                        console.log(e.target)
                         dur_pick_anime = true;
                         setTimeout(()=>{dur_pick_anime = false;},700)
                         e.target.animate([
