@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="module", src="under_select.js"></script>
+    <script type="module", src="move_gallery.js"></script>
+    <script type="module", src="search_modal.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="main_page.css">
@@ -10,21 +13,13 @@
     
 </header>
 <body>
-    <slogan>선명하게 만나는 4K 이미지
-    </slogan>
-    <middleslogan>찾고 있는 고화질 이미지를 제공해드립니다.
-    </middleslogan>
-    <searchbar>
-        <input placeholder="검색" autocomplete="off">
-        <logo id="glass"></logo>
-    </searchbar>
     <div class="UnderHash">
        <span id="rank1">#이브이</span>
        <span id="rank2">#피카츄</span>
        <span id="rank3">#지우은퇴</span>
        <span id="rank4">#바이올렛</span> 
     </div>
-    <blur>s</blur>
+    <div class="blur"></div>
     <div class="Gallery">
         <div id="pic1"></div>
         <div id="pic2"></div>
@@ -41,8 +36,15 @@
         <div id="dum5"></div>
         <div id="dum6"></div>
     </div>
+    <div id="slogans">
+        <div class="main_slogan">선명하게 만나는 4K 이미지
+        </div>
+        <div class="sub_slogan">찾고 있는 고화질 이미지를 제공해드립니다.
+        </div>
+    </div>
+    <div id="search_bar">
+        <input placeholder="검색" autocomplete="off">
+        <logo id="glass"></logo>
+    </div>
 </body>
-
-<script type="text/javascript" src="under_select.js"></script>
-<script type="text/javascript" src="move_gallery.js"></script>
 </html>
