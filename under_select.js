@@ -1,12 +1,11 @@
-
 import { move_anime } from "./move_gallery.js";
 
 const UnderHash = document.querySelectorAll(".UnderHash *");
 let prev;
 let dur_pick_anime = false;
 
-UnderHash.forEach(function (rank) {
-    rank.style.margin = `0px ${(200-document.getElementById(rank.id).offsetWidth)/2}px`
+UnderHash.forEach((rank) => {
+    rank.style.margin = `0px ${(300-document.getElementById(rank.id).offsetWidth)/2}px`
     rank.addEventListener("click", function (e) {
         if (!dur_pick_anime && prev != e.target) {
             dur_pick_anime = true;

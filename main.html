@@ -4,9 +4,12 @@
     <script type="module", src="under_select.js"></script>
     <script type="module", src="move_gallery.js"></script>
     <script type="module", src="search_modal.js"></script>
+    <script type="module", src="click_search_list.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="main_page.css">
+    <link rel="stylesheet" href="search_box.css">
+    <link rel="stylesheet" href="under_select.css">
     <title>gallerest</title>
 </head>
 <header>
@@ -43,8 +46,22 @@
         </div>
     </div>
     <div id="search_bar">
-        <input placeholder="검색" autocomplete="off">
-        <logo id="glass"></logo>
+        <input placeholder="찾고 있는 고화질 이미지를 검색하세요." autocomplete="off">
+        <div id="glass"></div>
+        <div id="under_line"></div>
+        <ul id="search_li">
+            <li id="keyword1"><div class="keytext">피카츄</div></li>
+            <li id="keyword2"><div class="keytext">라이츄</div></li>
+            <li id="keyword3"><div class="keytext">파이리</div></li>
+            <li id="keyword4"><div class="keytext">꼬부기</div></li>
+            <li id="keyword5"><div class="keytext">버터풀</div></li>
+            <li id="keyword6"><div class="keytext">야도란</div></li>
+            <li id="keyword7"><div class="keytext">피죤투</div></li>
+            <li id="keyword8"><div class="keytext">또가스</div></li>
+            <li id="keyword9"><div class="keytext">산에서</div></li>
+            <li id="keyword10"><div class="keytext">길에서</div></li>
+        </ul>
     </div>
+    <div class="centerpoint"></div>
 </body>
 </html>

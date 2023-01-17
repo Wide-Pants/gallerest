@@ -1,4 +1,2 @@
-Docs pics and dummies' array is modified.
-Feat an animation about pictures of main page.
-Replan the program to use js only.
-Made searchModal animation and, photo scroll animation
+Feat(modal_search_list): Made moal list
+Style(all file): devide css files

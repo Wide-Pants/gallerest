@@ -1,0 +1,64 @@
+
+#search_bar{
+    z-index: 1;
+    position: absolute;
+    align-content: center;
+    display:inline-block;
+    background-color: white;
+    left:50%;
+    width: 460px;
+    height: 60px;
+    border-radius: 30px;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+#search_bar input{
+    display:inline-block;
+    background-color: #FFFFFF;
+    border: 0px;
+    padding: 0px;
+    line-height: 18px;
+    width: 376px;
+    height: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 16px;
+    outline: none;
+}
+#glass{
+    display:inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: 18px;
+    background-size: 20px 20px;
+    background-image: url('./dodbogy.png');
+    cursor: pointer;
+}
+#under_line{
+    display: block;
+    position: absolute;
+    margin-top: 20px;
+    width: 460px;
+    height: 1px;
+    opacity: 0;
+    background-color: #b3b3b3;
+}
+#search_li{
+    margin-top: 26px;
+    padding: 0 0;
+    opacity: 0;
+    width: 460px;
+    position: relative;
+}
+#search_li li{
+    align-items: center;
+    display:flex;
+    height: 24px;
+    font-size: 16px;
+    padding: 12px 0;
+    cursor: pointer;
+}
+.keytext{
+    margin-left: 30px;
+}

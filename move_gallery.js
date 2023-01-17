@@ -12,6 +12,7 @@ let dum4 = document.getElementById("dum4");
 let dum5 = document.getElementById("dum5");
 let dum6 = document.getElementById("dum6");
 let dum_Array = [dum1, dum2, dum3, dum4, dum5, dum6];
+const SIZEUP = 15;
 let pic_X = [[455, 255, 265, 165, 150],
              [1285,115, 890, 495, 510],
              [100,590, 1470, 1390, 1140],
@@ -51,27 +52,28 @@ const image_array=["url(\"https://www.gannett-cdn.com/presto/2019/12/13/PREN/056
 let current = 0;
 
 for (let a = 0; a < 6; a++) {
-    pic_Array[a].style.width = `${pic_W[a][current]+5}px`;
-    pic_Array[a].style.height =`${pic_H[a][current]+5}px`;
-    pic_Array[a].style.left = `${pic_X[a][current]-5}px`;
-    pic_Array[a].style.top = `${pic_Y[a][current]-5}px`;
+    pic_Array[a].style.width = `${pic_W[a][current]+SIZEUP}px`;
+    pic_Array[a].style.height =`${pic_H[a][current]+SIZEUP}px`;
+    pic_Array[a].style.left = `${pic_X[a][current]-SIZEUP}px`;
+    pic_Array[a].style.top = `${pic_Y[a][current]-SIZEUP}px`;
     pic_Array[a].style.backgroundImage = image_array[current];
 }
 
 function move_anime(i) {
     for (let b = 0; b < 6; b++) {
-        dum_Array[b].style.width = `${pic_W[b][i]+5}px`;
-        dum_Array[b].style.height = `${pic_H[b][i]+5}px`;
-        dum_Array[b].style.left = `${pic_X[b][i]-5}px`;
+        dum_Array[b].style.width = `${pic_W[b][i]+SIZEUP}px`;
+        dum_Array[b].style.height = `${pic_H[b][i]+SIZEUP}px`;
+        dum_Array[b].style.left = `${pic_X[b][i]-SIZEUP}px`;
         dum_Array[b].style.top = "-400px";
         dum_Array[b].style.backgroundImage = image_array[i]
         {
             dum_Array[b].animate([
                 {
+                    display: `block`,
                     top: `${-pic_H[b][i]-50}px`
                 },
                 {
-                    top: `${pic_Y[b][i]-5}px`
+                    top: `${pic_Y[b][i]-SIZEUP}px`
                 }
             ], {
                 duration: 1000,
@@ -84,7 +86,7 @@ function move_anime(i) {
                 top: `${pic_Y[b][current]-5}px`
             },
             {
-                top:`${pic_Y[b][current]+1200}px`
+                top:`${pic_H[b][current]+1200}px`
             }
         ], {
             duration: 1000,
@@ -92,11 +94,25 @@ function move_anime(i) {
             easing: "ease-out"
         });
         setTimeout(()=>{
-            pic_Array[b].style.width = `${pic_W[b][i]+5}px`;
-            pic_Array[b].style.height = `${pic_H[b][i]+5}px`;
-            pic_Array[b].style.left = `${pic_X[b][i]-5}px`;
-            pic_Array[b].style.top = `${pic_Y[b][i]-5}px`;
-            pic_Array[b].style.backgroundImage = image_array[i]
+            pic_Array[b].animate([{
+                width:`${pic_W[b][i]+SIZEUP}px`,
+                height:`${pic_H[b][i]+SIZEUP}px`,
+                left:`${pic_X[b][i]-SIZEUP}px`,
+                top:`${pic_Y[b][i]-SIZEUP}px`,
+                backgroundImage: image_array[i]
+                
+            }],{
+                duration: 0,
+                fill: "forwards",
+            })
+            dum_Array[b].animate([
+                {
+                    display: `none`,
+                }
+            ], {
+                duration: 0,
+                fill: "forwards",
+            });
         },1000)
     }current = i;
 }
