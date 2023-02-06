@@ -28,7 +28,7 @@
     text-shadow: -1px 0 #FFF, 0 1px #FFF, 1px 0 #FFF, 0 -1px #FFF;
 }
 
-.Gallery *, .dummy_Gallery *{
+.Gallery *, .dummy_Gallery *, .assemble_Gallery *{
     overflow: hidden;
     display: flex;
     position: absolute;
