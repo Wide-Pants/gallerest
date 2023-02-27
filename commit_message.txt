@@ -1,2 +1,1 @@
-Feat(modal_search_list): Made moal list
-Style(all file): devide css files
+Feat(modal_search_list): made new align animation
