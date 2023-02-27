@@ -22,7 +22,7 @@
     z-index: 1;
     cursor: pointer;
     text-align: center;
-    font-size: 2vw;
+    font-size: 40px;
     font-weight: 800;
     color: black;
     text-shadow: -1px 0 #FFF, 0 1px #FFF, 1px 0 #FFF, 0 -1px #FFF;
@@ -30,9 +30,18 @@
 
 .Gallery *, .dummy_Gallery *{
     overflow: hidden;
-    display: block;
+    display: flex;
     position: absolute;
     background-position: center;
     background-size: cover;
     z-index: -1;
+}
+
+.assemble_Gallery *{
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    z-index: -2;
 }
