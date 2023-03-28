@@ -11,24 +11,25 @@
 .UnderHash{
     z-index: 1;
     font-family: '나눔고딕';
-    justify-content:center;
     transform: translate(-50%,90vh);
-    width: 100vw;
+    width: 90vw;
     left: 50%;
     display: flex;
     position: absolute;
+    justify-content: space-around;
 }
 .UnderHash *{
     z-index: 1;
     cursor: pointer;
     text-align: center;
-    font-size: 40px;
+    font-size: 3vw;
     font-weight: 800;
     color: black;
     text-shadow: -1px 0 #FFF, 0 1px #FFF, 1px 0 #FFF, 0 -1px #FFF;
+    
 }
 
-.Gallery *, .dummy_Gallery *, .assemble_Gallery *{
+.Gallery *, .dummy_Gallery *{
     overflow: hidden;
     display: flex;
     position: absolute;

@@ -1,1 +1,1 @@
-Feat(modal_search_list): made new align animation
+fix: move_gallery(make a module to scrolling)
