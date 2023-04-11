@@ -10,7 +10,7 @@ UnderHash.forEach((rank) => {
         if (!dur_pick_anime && prev != e.target) {
             dur_pick_anime = true;
             setTimeout(function () { dur_pick_anime = false; }, 1000);
-            move_anime(e.target.id.charAt(4)-1);
+            move_anime(e.target.id.charAt(4));
             e.target.animate([
                 {
                     color: "black",
