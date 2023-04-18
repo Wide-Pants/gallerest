@@ -165,7 +165,7 @@ function search_bar_close_anime(size_down_search_bar_time, move_search_bar_time)
             })
     },700);
 }
-function slogan_fadein_anime(slogan_fadein_timing){
+function slogans_fadein_anime(slogan_fadein_timing){
     setTimeout(()=>{slogans.animate([
         {
             opacity: 0
@@ -259,7 +259,49 @@ document.addEventListener("click",(e)=>{
         let move_search_bar_time=700;
         under_select_appear(move_search_bar_time)
         search_bar_close_anime(size_down_search_bar_time,move_search_bar_time)
-        slogan_fadein_anime(size_down_search_bar_time+move_search_bar_time-slognas_timing)
+        slogans_fadein_anime(size_down_search_bar_time+move_search_bar_time-slognas_timing)
         search_in_icon_close_anime(size_down_search_bar_time, move_search_bar_time)
     }
 })
+
+function search_bar_fadeout(fade_out_timing){
+    search_bar.animate([{
+        opacity : 0
+    }],{
+        duration:fade_out_timing,
+        fill: `forwards`
+    })
+    setTimeout(()=>{
+        search_bar.animate([{
+            transform : `translate(-50%,-50%)`
+        }],{
+            duration:0,
+            fill: `forwards`
+        },fade_out_timing)
+    })
+}
+function search_bar_fadein(fade_in_timing){
+    setTimeout(()=>{
+        search_bar.animate([{
+            transform : `translate(-50%,-50%)`
+        }],{
+            duration:0,
+            fill: `forwards`
+        },fade_in_timing)
+        search_bar.animate([{
+            opacity: 0
+        },
+        {
+            opacity: 0.4
+        },
+        {
+            opacity: 1
+        }],{
+            duration:fade_in_timing-100,
+            fill: `forwards`
+        })
+    }, fade_in_timing+100)
+}
+
+
+export{slogans_fadein_anime,slogans_fadeout_anime, under_select_appear, under_select_hide, search_bar_fadeout, search_bar_fadein}

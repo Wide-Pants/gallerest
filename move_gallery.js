@@ -13,28 +13,28 @@ let dum5 = document.getElementById("dum5");
 let dum6 = document.getElementById("dum6");
 let dum_Array = [dum1, dum2, dum3, dum4, dum5, dum6];
 const SIZEUP = 15;
-let pic_X = [[455, 255, 265, 165, 150],
+let mv_pic_X = [[455, 255, 265, 165, 150],
              [1285,115, 890, 495, 510],
              [100,590, 1470, 1390, 1140],
              [730,1265, 205, 785, 400],
              [985,1270, 695, 960, 1050],
              [1635,1390, 1475, 1592, 1480],
 ];
-let pic_Y = [[50, -18, 55, 385, 100],
+let mv_pic_Y = [[50, -18, 55, 385, 100],
              [145, 500, 275, 50, 260],
              [385, 300, 55, 120, 40],
              [765, 70, 570, 720, 680],
              [560, 715, 655, 530, 550],
              [760, 485, 590, 700, 435]
 ];
-let pic_W = [[245, 230, 215, 195, 300],
+let mv_pic_W = [[245, 230, 215, 195, 300],
              [425, 300, 350, 395, 400],
              [400, 440, 280, 250, 250],
              [300, 220, 195, 215, 250],
              [400, 175, 230, 400, 500],
              [175, 280, 175, 180, 180],
 ];
-let pic_H = [[245, 275, 290, 250, 350],
+let mv_pic_H = [[245, 275, 290, 250, 350],
              [300, 380, 420, 260, 260],
              [515, 300, 250, 250, 250],
              [275, 200, 250, 230, 230],
@@ -51,28 +51,36 @@ const image_array=["url(\"https://www.gannett-cdn.com/presto/2019/12/13/PREN/056
 let current = 0;
 
 for (let a = 0; a < 6; a++) {
-    pic_Array[a].style.width = `${pic_W[a][current]+SIZEUP}px`;
-    pic_Array[a].style.height =`${pic_H[a][current]+SIZEUP}px`;
-    pic_Array[a].style.left = `${pic_X[a][current]-SIZEUP}px`;
-    pic_Array[a].style.top = `${pic_Y[a][current]-SIZEUP}px`;
+    pic_Array[a].style.width = `${mv_pic_W[a][current]+SIZEUP}px`;
+    pic_Array[a].style.height =`${mv_pic_H[a][current]+SIZEUP}px`;
+    pic_Array[a].style.left = `${mv_pic_X[a][current]-SIZEUP}px`;
+    pic_Array[a].style.top = `${mv_pic_Y[a][current]-SIZEUP}px`;
     pic_Array[a].style.backgroundImage = image_array[current];
 }
 
 async function scrolling_down(mv_duration){
     for (let b = 0; b < 6; b++) {
-        dum_Array[b].style.width = `${pic_W[b][current+1]+SIZEUP}px`;
-        dum_Array[b].style.height = `${pic_H[b][current+1]+SIZEUP}px`;
-        dum_Array[b].style.left = `${pic_X[b][current+1]-SIZEUP}px`;
+        dum_Array[b].style.width = `${mv_pic_W[b][current+1]+SIZEUP}px`;
+        dum_Array[b].style.height = `${mv_pic_H[b][current+1]+SIZEUP}px`;
+        dum_Array[b].style.left = `${mv_pic_X[b][current+1]-SIZEUP}px`;
         dum_Array[b].style.top = "-400px";
         dum_Array[b].style.backgroundImage = image_array[current+1]
         {
             dum_Array[b].animate([
                 {
+                    opacity:1
+                }
+            ], {
+                duration: 0,
+                fill: "forwards",
+            });
+            dum_Array[b].animate([
+                {
                     display: `block`,
-                    top: `${-pic_H[b][current+1]-50}px`
+                    top: `${-mv_pic_H[b][current+1]-50}px`
                 },
                 {
-                    top: `${pic_Y[b][current+1]-SIZEUP}px`
+                    top: `${mv_pic_Y[b][current+1]-SIZEUP}px`
                 }
             ], {
                 duration: mv_duration,
@@ -82,10 +90,10 @@ async function scrolling_down(mv_duration){
         }
         pic_Array[b].animate([
             {
-                top: `${pic_Y[b][current]-5}px`
+                top: `${mv_pic_Y[b][current]-5}px`
             },
             {
-                top:`${pic_H[b][current]+1200}px`
+                top:`${mv_pic_H[b][current]+1200}px`
             }
         ], {
             duration: mv_duration,
@@ -94,10 +102,10 @@ async function scrolling_down(mv_duration){
         });
             setTimeout(()=>{
                 pic_Array[b].animate([{
-                    width:`${pic_W[b][current+1]+SIZEUP}px`,
-                    height:`${pic_H[b][current+1]+SIZEUP}px`,
-                    left:`${pic_X[b][current+1]-SIZEUP}px`,
-                    top:`${pic_Y[b][current+1]-SIZEUP}px`,
+                    width:`${mv_pic_W[b][current+1]+SIZEUP}px`,
+                    height:`${mv_pic_H[b][current+1]+SIZEUP}px`,
+                    left:`${mv_pic_X[b][current+1]-SIZEUP}px`,
+                    top:`${mv_pic_Y[b][current+1]-SIZEUP}px`,
                     backgroundImage: image_array[current+1]
     
                 }],{
@@ -106,7 +114,7 @@ async function scrolling_down(mv_duration){
                 })
                 dum_Array[b].animate([
                     {
-                        display: `none`,
+                        opacity:0
                     }
                 ], {
                     duration: 0,
@@ -117,21 +125,29 @@ async function scrolling_down(mv_duration){
     await new Promise((resolve, reject) => setTimeout(()=>{resolve(); current++}, mv_duration));
 }
 
+
 async function scrolling_up(mv_duration){
     for (let b = 0; b < 6; b++) {
-        dum_Array[b].style.width = `${pic_W[b][current-1]+SIZEUP}px`;
-        dum_Array[b].style.height = `${pic_H[b][current-1]+SIZEUP}px`;
-        dum_Array[b].style.left = `${pic_X[b][current-1]-SIZEUP}px`;
-        dum_Array[b].style.top = `${pic_H[b][current-1]+1150}px`;
+        dum_Array[b].style.width = `${mv_pic_W[b][current-1]+SIZEUP}px`;
+        dum_Array[b].style.height = `${mv_pic_H[b][current-1]+SIZEUP}px`;
+        dum_Array[b].style.left = `${mv_pic_X[b][current-1]-SIZEUP}px`;
+        dum_Array[b].style.top = `${mv_pic_H[b][current-1]+1150}px`;
         dum_Array[b].style.backgroundImage = image_array[current-1]
         {
             dum_Array[b].animate([
                 {
-                    display: `block`,
-                    top: `${pic_H[b][current-1]+1150}px`
+                    opacity:1
+                }
+            ], {
+                duration: 0,
+                fill: "forwards",
+            });
+            dum_Array[b].animate([
+                {
+                    top: `${mv_pic_H[b][current-1]+1150}px`
                 },
                 {
-                    top: `${pic_Y[b][current-1]-SIZEUP}px`
+                    top: `${mv_pic_Y[b][current-1]-SIZEUP}px`
                 }
             ], {
                 duration: mv_duration,
@@ -141,10 +157,10 @@ async function scrolling_up(mv_duration){
         }
         pic_Array[b].animate([
             {
-                top: `${pic_Y[b][current]-SIZEUP}px`
+                top: `${mv_pic_Y[b][current]-SIZEUP}px`
             },
             {
-                top:`${-pic_H[b][current]-300}px`
+                top:`${-mv_pic_H[b][current]-600}px`
             }
         ], {
             duration: mv_duration,
@@ -153,10 +169,10 @@ async function scrolling_up(mv_duration){
         });
             setTimeout(()=>{
                 pic_Array[b].animate([{
-                    width:`${pic_W[b][current-1]+SIZEUP}px`,
-                    height:`${pic_H[b][current-1]+SIZEUP}px`,
-                    left:`${pic_X[b][current-1]-SIZEUP}px`,
-                    top:`${pic_Y[b][current-1]-SIZEUP}px`,
+                    width:`${mv_pic_W[b][current-1]+SIZEUP}px`,
+                    height:`${mv_pic_H[b][current-1]+SIZEUP}px`,
+                    left:`${mv_pic_X[b][current-1]-SIZEUP}px`,
+                    top:`${mv_pic_Y[b][current-1]-SIZEUP}px`,
                     backgroundImage: image_array[current-1]
     
                 }],{
@@ -165,7 +181,7 @@ async function scrolling_up(mv_duration){
                 })
                 dum_Array[b].animate([
                     {
-                        display: `none`,
+                        opacity:0
                     }
                 ], {
                     duration: 0,
@@ -176,18 +192,14 @@ async function scrolling_up(mv_duration){
     await new Promise((resolve, reject) => setTimeout(()=>{resolve(); current--}, mv_duration));
 }
 async function move_anime(mv_for) {
-    let start_pt = current;
     if(mv_for>current){
-        let pertime = mv_for-start_pt;
-        for (let i=0;i < (mv_for-start_pt);i++)
-            {scrolling_down(900/pertime)}
+        for (current;0 < (mv_for-current);)
+           await scrolling_down(700)
     }
     else if(mv_for<current)//scroll up
     {
-        let pertime = current-mv_for;
-        for (let i=0;i < (start_pt-mv_for);i++){
-            scrolling_up(900/pertime)
-        }
+        for (current;0 < (current-mv_for);)
+            await scrolling_up(700)
     }
 }
-export { move_anime };
+export { move_anime, current , mv_pic_H, mv_pic_X, mv_pic_Y, mv_pic_W, pic_Array,SIZEUP};
