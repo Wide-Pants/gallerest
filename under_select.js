@@ -1,6 +1,7 @@
 import { move_anime } from "./move_gallery.js";
 import { current as c_page_No } from "./move_gallery.js";
 
+const search_input = document.querySelectorAll("#search_bar input")[0];
 const UnderHash = document.querySelectorAll(".UnderHash *");
 let prev;
 let dur_pick_anime = false;
@@ -11,6 +12,7 @@ UnderHash.forEach((rank) => {
         if (!dur_pick_anime && prev != e.target) {
             let clicked_No=e.target.id.charAt(4)
             dur_pick_anime = true;
+            search_input.placeholder=e.target.textContent.substr(1);
             setTimeout(function () { dur_pick_anime = false; }, Math.abs(c_page_No-clicked_No)*700);
             move_anime(clicked_No);
             e.target.animate([

@@ -25,7 +25,7 @@
     font-size: 3vw;
     font-weight: 800;
     color: rgba(255,255,255,0);
-    -webkit-text-stroke: 2.5px #fff; 
+    -webkit-text-stroke: 1.5px #fff; 
 }
 
 .Gallery *, .dummy_Gallery *{
