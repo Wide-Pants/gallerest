@@ -13,6 +13,8 @@ let a_gal7 = document.getElementById("a_gal7");
 let a_gal8 = document.getElementById("a_gal8");
 
 let a_btn = document.getElementById("assemble_button");
+let a_btn_first = a_btn.children[0];
+let a_btn_second = a_btn.children[1];
 
 
 let gal_Array = [a_gal1 ,a_gal2 ,a_gal3 ,a_gal4 ,a_gal5 ,a_gal6 ,a_gal7 ,a_gal8 ];
@@ -113,7 +115,8 @@ let state_in = false;
 
 a_btn.addEventListener(`click`,()=>{
     if(state_in==false){
-        a_btn.animate([{transform:' translate(-53px,-50%) rotate(-45deg)'}],{duration:500, fill:`forwards`})
+        a_btn_first.animate([{transform:'rotate(135deg)'}],{duration:500, fill:`forwards`})
+        a_btn_second.animate([{transform:'rotate(45deg)'}],{duration:500, fill:`forwards`})
         blur.animate([{opacity:0}],{duration:500, fill:`forwards`})
         anime.slogans_fadeout_anime(600);
         anime.under_select_hide(600);
@@ -132,7 +135,8 @@ a_btn.addEventListener(`click`,()=>{
                 })
         }state_in=true;
     }else{
-        a_btn.animate([{transform:'translate(-53px,-50%) rotate(0deg)'}],{duration:1000, fill:`forwards`})
+        a_btn_first.animate([{transform:'rotate(90deg)'}],{duration:500, fill:`forwards`})
+        a_btn_second.animate([{transform:'rotate(0deg)'}],{duration:500, fill:`forwards`})
         blur.animate([{opacity:0.3}],{duration:1000, fill:`forwards`})
         anime.slogans_fadein_anime(700);
         anime.under_select_appear(700);

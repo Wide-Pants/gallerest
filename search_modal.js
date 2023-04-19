@@ -5,8 +5,9 @@ const slogans = document.getElementById("slogans");
 const search_list = document.getElementById("search_li");
 const search_under_bar = document.getElementById(`under_line`);
 const under_select = document.getElementsByClassName("UnderHash")[0];
+let a_btn = document.getElementById("assemble_button");
 
-let seaching = 'donot';
+let searching = 'donot';
 let slognas_timing = 500;
 
 function search_bar_open_anime(move_search_bar_time, size_up_search_bar_time){
@@ -93,7 +94,7 @@ function search_in_icon_open_anime(move_search_bar_time, size_up_search_bar_time
     setTimeout(() => {
         search_input.focus();
         search_input.placeholder=`검색`
-        seaching = 'do';
+        searching = 'do';
         search_list.animate([{
             opacity: 1,
         }],{
@@ -128,11 +129,12 @@ function under_select_hide(closing_time){
     })
 }
 search_bar.addEventListener("click", (e)=>{
-    if(seaching == 'donot' && e.target != search_icon){
-    seaching = 'during';
+    if(searching == 'donot' && e.target != search_icon){
+    searching = 'during';
     search_input.placeholder=``
     let move_search_bar_time = 1000
     let size_up_search_bar_time = 1000
+    a_btn.style.display = 'none'
     under_select_hide(move_search_bar_time)
     search_bar_open_anime(move_search_bar_time,size_up_search_bar_time)
     slogans_fadeout_anime(slognas_timing)
@@ -232,7 +234,7 @@ function search_in_icon_close_anime(size_down_search_bar_time, move_search_bar_t
         else 
             search_input.placeholder=`찾고 있는 고화질 이미지를 검색하세요.`
         search_input.value =``;
-        seaching = 'donot';
+        searching = 'donot';
     }, move_search_bar_time+size_down_search_bar_time);
 }
 function under_select_appear(appear_time){
@@ -252,11 +254,13 @@ function under_select_appear(appear_time){
     }, appear_time)
 }
 document.addEventListener("click",(e)=>{
-    if(seaching == `do`)
+    if(searching == `do`)
         if(e.target != search_input && e.target != search_bar && e.target !=search_icon && e.target.parentNode != search_list && e.target.parentNode.parentNode != search_list && e.target != search_list){
-        seaching = `during`;
+        searching = `during`;
         let size_down_search_bar_time=700;
         let move_search_bar_time=700;
+        setTimeout(()=>{
+            a_btn.style.display = 'block'},1350)
         under_select_appear(move_search_bar_time)
         search_bar_close_anime(size_down_search_bar_time,move_search_bar_time)
         slogans_fadein_anime(size_down_search_bar_time+move_search_bar_time-slognas_timing)
@@ -304,4 +308,4 @@ function search_bar_fadein(fade_in_timing){
 }
 
 
-export{slogans_fadein_anime,slogans_fadeout_anime, under_select_appear, under_select_hide, search_bar_fadeout, search_bar_fadein}
+export{searching ,slogans_fadein_anime,slogans_fadeout_anime, under_select_appear, under_select_hide, search_bar_fadeout, search_bar_fadein}

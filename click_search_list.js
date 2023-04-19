@@ -5,7 +5,7 @@ const search_input = document.querySelectorAll("#search_bar input")[0];
 search_list.forEach((list,i)=>{
         list.addEventListener("click",(e)=>{
                 history.pushState({},`${e.target.textContent}`,`/${e.target.textContent}`)
-
+                location.href = 'search_page.html'
         })
     }
 )
