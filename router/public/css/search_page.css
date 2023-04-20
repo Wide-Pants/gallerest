@@ -1,0 +1,129 @@
+::selection{
+    color: rgb(255, 139, 139);
+}
+*{
+    margin: 0 0;
+    font-family: '나눔고딕';
+    background-clip:content-box;
+    box-sizing: content-box;
+}
+
+header{
+
+    background-clip:padding-box;
+    display: flex;
+    justify-content:space-between;
+    left: 0px;
+    top: 0px;
+    width: 85%;
+    padding: 0 7.5%;
+    height: 100px;
+    position: fixed;
+    background-color: white;
+    align-items: center;
+    z-index: 1;
+}
+
+#icon_menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 120px;
+    height: 50px;
+    background-color: gray;
+}
+#logo{
+    width: 160px;
+    height: 50px;
+    background-color: black;
+}
+#scrap{
+    width: 48px;
+    height: 48px;
+    margin-right: 2rem;
+    background-color: black;
+}
+#profile{
+    width: 48px;
+    height: 48px;
+    background-color: black;
+}
+#search_bar{
+    display: flex;
+    background-color: #e4e4e4;
+    border: 0px;
+    padding: 0px;
+    line-height: 18px;
+    width: 34rem;
+    height: 50px;
+    font-size: 16px;
+    padding-left: 1.2rem;
+    background-clip:padding-box;
+    outline: none;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 25%;
+}
+#search_bar input{
+    background-color: #e4e4e4;
+    border: 0px;
+    padding: 0px;
+    line-height: 18px;
+    width: 24rem;
+    height: 40px;
+    font-size: 16px;
+    outline: none;
+}
+#search_icon{
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    margin-right: 1.2rem;
+}
+body{
+    background-color: black;
+    margin: 0 8%;
+    margin-top: 140px;
+}
+
+#search_thing{
+    display: block;
+    position: relative;
+    margin-top: 2.5rem;
+    font-size: 2.5rem;
+    color: white;
+}
+
+#img_board{
+    display: flex;
+    margin-top: 2.5rem;
+    position: relative;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+.img_lane{
+    height: auto;
+    display: flex;
+    width: 32%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.img_lane *{
+    display: block;
+    width: 100%;
+    background-color: gray;
+    margin-bottom: 1.68vw;
+}
+#loading_bar{
+    display: none;
+    align-items: center;
+    position: relative;
+    color: white;
+    left: 50%;
+    top:200px;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}

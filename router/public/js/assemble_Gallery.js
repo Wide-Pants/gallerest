@@ -3,6 +3,7 @@ import { mv_pic_H, mv_pic_Y, pic_Array, current} from "./move_gallery.js"
 
 let blur = document.getElementById("blur");
 const SIZEUP = 15;
+
 let a_gal1 = document.getElementById("a_gal1");
 let a_gal2 = document.getElementById("a_gal2");
 let a_gal3 = document.getElementById("a_gal3");
@@ -44,22 +45,11 @@ let a_pic_H = [270,270,320,550,280,260,320,540];
 const image_array=["url(\"https://www.gannett-cdn.com/presto/2019/12/13/PREN/056dc099-5c18-47af-a416-435f29175b70-Switch_PokemonSwordPokemonShield_artwork_01_png_jpgcopy.jpg?width=1320&height=850&fit=crop&format=pjpg&auto=webp\")",
 "url(\"https://sportshub.cbsistatic.com/i/2022/09/07/9ccb5a62-149c-4727-9fca-114923aa0094/pokemonsv-featureart2-c-rgb.jpg\")",
 "url(\"https://sm.ign.com/ign_ap/gallery/a/all-terast/all-terastallized-pokemon_v3tp.jpg\")",
-"url(\"https://pbs.twimg.com/media/DqGBrNdUwAAG_Ja.jpg:large\")",
-"url(\"https://assets.reedpopcdn.com/Pokemon-Scarlet-and-Violet-Header_f1zO36s.jpg/BROK/thumbnail/1200x1200/quality/100/Pokemon-Scarlet-and-Violet-Header_f1zO36s.jpg\")",
-"url(\"https://media2.fdncms.com/rochester/imager/video-game-review-pokemon-xy/u/original/2295145/yveltal_official_illustration_300dpi.jpg\")",
-"url(\"https://pbs.twimg.com/media/DqGBrNdUwAAG_Ja.jpg:large\")",
-"url(\"https://assets.reedpopcdn.com/Pokemon-Scarlet-and-Violet-Header_f1zO36s.jpg/BROK/thumbnail/1200x1200/quality/100/Pokemon-Scarlet-and-Violet-Header_f1zO36s.jpg\")",
+"url(\"https://a-static.besthdwallpaper.com/pokemon-party-wallpaper-3000x2000-17797_42.jpg\")",
 "url(\"https://media2.fdncms.com/rochester/imager/video-game-review-pokemon-xy/u/original/2295145/yveltal_official_illustration_300dpi.jpg\")",
 ];
 
-for (let a = 0; a < 8; a++) {
-    gal_Array[a].style.width = `${a_pic_W[a]}px`;
-    gal_Array[a].style.height =`${a_pic_H[a]}px`;
-    gal_Array[a].style.left = `50%`;
-    gal_Array[a].style.top =`50%`;
-    gal_Array[a].style.transform = `translate(${a_pic_X[a][0]+a_pic_X[a][1]}px,${a_pic_Y[a][0]+a_pic_Y[a][1]}px)`
-    gal_Array[a].style.backgroundImage = image_array[current];
-}
+
 
 function spread_scroll_gal(mvdr){
     for(let b=0; b<3;b++){
@@ -115,6 +105,14 @@ let state_in = false;
 
 a_btn.addEventListener(`click`,()=>{
     if(state_in==false){
+        for (let a = 0; a < 8; a++) {
+            gal_Array[a].style.width = `${a_pic_W[a]}px`;
+            gal_Array[a].style.height =`${a_pic_H[a]}px`;
+            gal_Array[a].style.left = `50%`;
+            gal_Array[a].style.top =`50%`;
+            gal_Array[a].style.transform = `translate(${a_pic_X[a][0]+a_pic_X[a][1]}px,${a_pic_Y[a][0]+a_pic_Y[a][1]}px)`
+            gal_Array[a].style.backgroundImage = image_array[current];
+        }
         a_btn_first.animate([{transform:'rotate(135deg)'}],{duration:500, fill:`forwards`})
         a_btn_second.animate([{transform:'rotate(45deg)'}],{duration:500, fill:`forwards`})
         blur.animate([{opacity:0}],{duration:500, fill:`forwards`})
