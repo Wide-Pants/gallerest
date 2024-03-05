@@ -4,11 +4,11 @@ const search_input = document.querySelectorAll("#search_bar input")[0];
 
 search_list.forEach((list,i)=>{
         list.addEventListener("click",(e)=>{
-            location.href = `/${e.target.textContent}`;
+            location.href = `/search_keyword/${e.target.textContent}`;
         })
     }
 )
 
 search_icon.addEventListener("click",(e)=>{
-    location.href = `/${search_input.placeholder}`;
+    location.href = `/search_keyword/${search_input.placeholder}`;
 })

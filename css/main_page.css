@@ -15,7 +15,6 @@ body{
 .main_slogan{
     position: absolute;
     display: block;
-    width: 415px;
     height: 55px;
     font-size: 36px;
     font-weight: 600;
@@ -26,7 +25,6 @@ body{
 .sub_slogan{
     position: absolute;
     display: block;
-    width: 294px;
     font-size: 16px;
     font-weight: 100;
     color: white;
