@@ -28,7 +28,9 @@ window.addEventListener('scroll', async () => {
 
 async function loadImages(keyword) {
     const ImgBoard = document.getElementById(`img_board`);
+    const loadingIndicator = document.getElementById(`loading_bar`);
     try {
+        loadingIndicator.style.display = "block";
         console.log(keyword + "입력됨")
         const response = await fetch(`http://localhost:3000/getImages/${encodeURIComponent(keyword)}/${count}`, {
             method: 'GET',
@@ -60,5 +62,6 @@ async function loadImages(keyword) {
 
     } finally {
         loading = false;
+        loadingIndicator.style.display = "none";
     }
 }
