@@ -100,7 +100,6 @@ body{
     margin-top: 2.5rem;
     position: relative;
     width: 100%;
-    height: auto;
     justify-content: space-between;
 }
 .img_lane{
@@ -109,14 +108,9 @@ body{
     width: 32%;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
 }
 
-.img_lane *{
-    display: block;
-    width: 100%;
-    background-color: gray;
-    margin-bottom: 1.68vw;
-}
 #loading_bar{
     display: none;
     align-items: center;
@@ -126,4 +120,13 @@ body{
     top:200px;
     transform: translate(-50%,-50%);
     text-align: center;
+}
+.imageContainers{
+    background-size: cover;
+    margin: 10px 0;
+}
+
+.imageContainers:hover{
+    width: 110%;
+    height: 110%;
 }

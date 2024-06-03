@@ -1,3 +1,4 @@
+const body = document.querySelector(`body`)
 let pic1 = document.getElementById("pic1");
 let pic2 = document.getElementById("pic2");
 let pic3 = document.getElementById("pic3");
@@ -49,6 +50,12 @@ const image_array=["url(\"https://www.gannett-cdn.com/presto/2019/12/13/PREN/056
 ];
 
 let current = 0;
+
+document.addEventListener('scroll',(e)=>{
+    console.log(`scroll`)
+    
+    e.preventDefault();
+})
 
 for (let a = 0; a < 6; a++) {
     pic_Array[a].style.width = `${mv_pic_W[a][current]+SIZEUP}px`;

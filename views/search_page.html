@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/search_page.css">
-    <script type="text/javascript", src="/js/click_search_list.js"></script>
     <title>gallerest_search</title>
 </head>
 <body>
@@ -19,13 +18,17 @@
             <span id="profile"></span>
         </span>
     </header>
-    <div id="search_thing">의 검색 결과입니다.</div>
+    <div id="search_thing"><span id="search_keyword"></span>의 검색 결과입니다.</div>
     <div id="img_board">
         <span class="img_lane"></span>
         <span class="img_lane"></span>
         <span class="img_lane"></span>
+        <span class="img_lane"></span>
     </div>
-    <div id="loading_bar"><img src="https://mblogthumb-phinf.pstatic.net/MjAxODEwMjNfNjAg/MDAxNTQwMjg2OTk2NTcw.mfWKPtzKVO1mJaBBIFKIkVBlMQQIF1Vc-yrlbbGaoP0g.KNJWAgMmhsfQrZI3n0UT-LMi_qpHAZls4qPMvbNaJBcg.GIF.chingguhl/Spinner-1s-200px.gif?type=w800"/><br>loading...</div>
+    <div id="loading_bar"></div>
     
 </body>
 </html>
+
+<script type="text/javascript", src="/js/click_search_list.js"></script>
+<script type="text/javascript", src="/js/LoadingImages.js"></script>

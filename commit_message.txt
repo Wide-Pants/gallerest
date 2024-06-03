@@ -1,1 +1,1 @@
-fix: move_gallery(make a module to scrolling)
+add NAVER search API

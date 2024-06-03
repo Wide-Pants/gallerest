@@ -1,6 +1,6 @@
 const search_bar = document.getElementById("search_bar");
 const search_input = document.querySelectorAll("#search_bar input")[0];
-const search_icon= document.getElementById("glass");
+const search_icon= document.getElementById("search_icon");
 const slogans = document.getElementById("slogans");
 const search_list = document.getElementById("search_li");
 const search_under_bar = document.getElementById(`under_line`);
