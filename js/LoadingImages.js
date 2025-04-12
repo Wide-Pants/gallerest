@@ -1,5 +1,6 @@
 let loading = true;
 let count = 0;
+let index = 0;
 window.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const keyword = decodeURIComponent(params.get('keyword'));
@@ -28,9 +29,7 @@ window.addEventListener('scroll', async () => {
 
 async function loadImages(keyword) {
     const ImgBoard = document.getElementById(`img_board`);
-    const loadingIndicator = document.getElementById(`loading_bar`);
     try {
-        loadingIndicator.style.display = "block";
         console.log(keyword + "입력됨")
         const response = await fetch(`http://localhost:3000/getImages/${encodeURIComponent(keyword)}/${count}`, {
             method: 'GET',
@@ -48,20 +47,26 @@ async function loadImages(keyword) {
 
         const images = imageJSON.items
         console.log(images)
-        Array.from(images).forEach((image, index) => {
-            console.log("이거 하는중")
-            const newImage = document.createElement(`div`);
-            newImage.style.backgroundImage = `url('${image.link}')`;
-            newImage.style.height = `${(382 / Number(image.sizewidth)) * Number(image.sizeheight)}px`
-            newImage.style.width = '382px';
-            newImage.classList.add('imageContainers');
-            ImgBoard.children[index % 4].appendChild(newImage);
+        Array.from(images).forEach(async (image) => {
+            const img = new Image();
+            img.src = image.link;
+            img.onload = () => {
+                const newImage = document.createElement(`div`);
+                newImage.style.backgroundImage = `url('${image.link}')`;
+                newImage.style.paddingBottom = `${100 * Number(image.sizeheight) / (Number(image.sizewidth))}%`
+                newImage.classList.add('imageContainers');
+                ImgBoard.children[index % 4].appendChild(newImage);
+                index++;
+                
+                newImage.addEventListener(`click`,()=>{
+                    window.open(image.link)
+                })
+            }
         })
         count++;
     } catch (e) {
 
     } finally {
         loading = false;
-        loadingIndicator.style.display = "none";
     }
 }

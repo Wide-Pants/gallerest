@@ -105,7 +105,7 @@ body{
 .img_lane{
     height: auto;
     display: flex;
-    width: 32%;
+    width: 382px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -122,11 +122,13 @@ body{
     text-align: center;
 }
 .imageContainers{
+    position: relative;
+    width: 100%;
     background-size: cover;
     margin: 10px 0;
+    background-clip: padding-box;
+    cursor: pointer;
 }
 
 .imageContainers:hover{
-    width: 110%;
-    height: 110%;
 }

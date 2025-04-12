@@ -26,7 +26,7 @@ app.get('/getImages/:keyword/:page', async (req, res) => {
 
 
     try {
-        const response = await fetch(`https://openapi.naver.com/v1/search/image?query=${keyword}&display=16&start=${1+16*page}&sort=sim&filter=medium`,
+        const response = await fetch(`https://openapi.naver.com/v1/search/image?query=${keyword}&display=16&start=${1+16*page}&sort=sim&filter=large`,
             {
                 headers: {
                     'X-Naver-Client-Id': client_id,
@@ -47,7 +47,7 @@ app.get('/getImages/:keyword/:page', async (req, res) => {
         console.error('Fetch error:', error);
         res.status(500).end();
     }
-})
+})   
 
 app.get('/', function (req, res) {
     const filePath = path.join(__dirname, `views`, 'main.html'); // 경로 수정
