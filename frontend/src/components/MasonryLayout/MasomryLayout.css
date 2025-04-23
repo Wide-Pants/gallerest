@@ -1,0 +1,30 @@
+.masonry-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  width: calc(100% / var(--columns));
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.masonry-skeleton {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+#masonry-column-container {
+  display: flex;
+  width: calc(100% - var(--gap) * 2);
+  flex-direction: row;
+  padding: 0 var(--gap);
+  gap: var(--gap);
+}

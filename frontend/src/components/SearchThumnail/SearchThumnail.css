@@ -1,0 +1,41 @@
+.search_thumbnail {
+  overflow: hidden; /* 이미지가 박스 바깥으로 나가지 않게 */
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.search_thumbnail>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  transform: scale(1); 
+}
+
+.search_thumbnail:hover>img {
+  transform: scale(1.05); 
+}
+
+@keyframes skeleton-animation {
+  0% {
+    background-color: linear-gradient(to right, #DDD 0%, #DDD 50%, #f0f0f0 100%);
+  }
+  50% {
+    background-color: linear-gradient(to right, #DDD 0%, #DDD 50%, #f0f0f0 100%);
+  }
+  100% {
+    background-color: linear-gradient(to right, #DDD 0%, #DDD 50%, #f0f0f0 100%);
+  }
+}
+
+.search_thumbnail_skeleton {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: #DDD;
+  border-radius: 8px;
+  animation: skeleton-animation 1.5s ease-in-out infinite;
+}
