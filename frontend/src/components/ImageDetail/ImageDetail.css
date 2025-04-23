@@ -1,0 +1,159 @@
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #detail_section {
+    max-width: 600px;
+    position: sticky;
+    width: 40vw;
+    min-width: 400px;
+    height: calc(100vh - 80px);
+    background-color: #ddd;
+    right: 0;
+    top: 80px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    z-index: 100;
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: slideLeft 0.3s ease-in-out;
+  }
+}
+
+#detail_section_header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+}
+
+#detail_section_header_close {
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+#detail_section {
+  background-color: #eee;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+#detail_section_container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 1px;
+  justify-content: center;
+}
+
+
+.loading-highlight {
+  position: absolute;
+  top: 0;
+  left: -40%;
+  /* 시작을 왼쪽 바깥에서 */
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #6e6e6e, transparent);
+  animation: highlightMove 1.2s infinite ease-in-out;
+}
+
+@keyframes highlightMove {
+  0% {
+    left: -40%;
+    opacity: 0;
+  }
+
+  50% {
+    left: 30%;
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+#detail_section_container_image_loading {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background-color: #eee;
+  animation: loading 1s linear infinite;
+}
+
+#detail_section_container_image {
+  position: relative;
+  background-color: #fff;
+}
+
+#detail_section_container_image>img {
+  max-height: 600px;
+  width: 100%;
+  object-fit: contain;
+}
+
+#detail_section_title {
+  padding: 12px 24px;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  background-color: #fff;
+  flex-grow: 1;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+  }
+
+  #detail_section {
+    position: fixed;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: #fff;
+    left: 0px;
+    top: 88px;
+    border-top: 1px solid #ddd;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease-in-out;
+  }
+}

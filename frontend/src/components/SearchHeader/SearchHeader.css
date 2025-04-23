@@ -1,21 +1,13 @@
-#logo {
-    min-width: 200px;
-    height: 80px;
-    background-image: url("../../public/rectangle-logo.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-
+/* 헤더 스타일 */
 header {
     position: sticky;
     top: 0;
     background-color: black;
     z-index: 1;
-    
+    width: 100%;
 }
 
+/* 검색 헤더 컨테이너 스타일 */
 #search_header_container {
     position: relative;
     display: flex;
@@ -27,10 +19,18 @@ header {
     gap: 12px;
 }
 
-#search_icon_container {
-    display: none;
+/* 로고 스타일 */
+#logo {
+    min-width: 200px;
+    height: 80px;
+    background-image: url("../../public/rectangle-logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
+/* 검색 입력 컨테이너 스타일 */
 #search_header_container #search_input_container {
     display: flex;
     flex-grow: 1;
@@ -46,7 +46,8 @@ header {
     background-clip: border-box;
 }
 
-#search_header_container #search_input_container>input {
+/* 검색 입력 필드 스타일 */
+#search_header_container #search_input_container > input {
     min-width: 240px;
     padding: 0.75rem 24px 0.75rem 0.5rem;
     flex-grow: 1;
@@ -58,10 +59,17 @@ header {
     border: none;
 }
 
-#search_header_container #search_input_container>input::placeholder {
+/* 검색 입력 필드 플레이스홀더 스타일 */
+#search_header_container #search_input_container > input::placeholder {
     color: #848484;
 }
 
+/* 검색 아이콘 컨테이너 스타일 (기본적으로 숨김) */
+#search_icon_container {
+    display: none;
+}
+
+/* 검색 박스 오버레이 스타일 */
 #search_box_overlay {
     position: absolute;
     color: #333;
@@ -71,6 +79,7 @@ header {
     z-index: 2;
 }
 
+/* 검색 박스 스타일 */
 #search_box {
     position: fixed;
     background-color: #fff;
@@ -83,10 +92,11 @@ header {
     background-clip: padding-box;
     height: 400px;
     padding: 12px 12px;
-
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
+/* 검색 박스 제목 스타일 */
 #search_box_title {
     font-size: 1.2rem;
     font-weight: 600;
@@ -94,6 +104,7 @@ header {
     padding: 4px 0;
 }
 
+/* 검색 박스 닫기 버튼 스타일 */
 #search_box_close {
     background-color: transparent;
     color: #333;
@@ -105,24 +116,40 @@ header {
     cursor: pointer;
 }
 
+/* 검색 히스토리 컨테이너 스타일 */
 #search_box_history {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    padding: 8px 0;
+    gap: 8px
 }
 
-#search_box_history>.search_box_history_item {
+/* 검색 히스토리 아이템 스타일 */
+#search_box_history > .search_box_history_item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    width: 100%;
+    width: calc(100% - 16px);
     cursor: pointer;
+    gap: 12px;
 }
 
-#search_box_history>.search_box_history_item_close {
+/* 검색 히스토리 아이템 내부 span 스타일 */
+#search_box_history > .search_box_history_item > span {
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* 검색 히스토리 아이템 호버 효과 */
+#search_box_history > .search_box_history_item:hover > span {
+    background-color: #f0f0f0;
+}
+
+/* 검색 히스토리 아이템 닫기 버튼 스타일 */
+#search_box_history > .search_box_history_item_close {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,8 +158,8 @@ header {
     cursor: pointer;
 }
 
+/* 모바일 뷰 스타일 (768px 이하) */
 @media (max-width: 768px) {
-
     #search_header_container #logo {
         max-width: 100px;
         flex-shrink: 1;
@@ -141,7 +168,6 @@ header {
     #search_header_container #logo[data-open="true"] {
         display: none;
     }
-
 
     #search_header_container #search_input_container {
         display: none;
@@ -174,9 +200,9 @@ header {
     #search_header_container #search_icon_container[data-open="true"] {
         display: none;
     }
-
 }
 
+/* 태블릿 뷰 스타일 (480px ~ 768px) */
 @media (min-width: 480px) and (max-width: 768px) {
     #search_box {
         position: fixed;
@@ -194,10 +220,11 @@ header {
 
     #search_input_container {
         flex-grow: 1;
+        background-clip: padding-box;
     }
-
 }
 
+/* 모바일 뷰 스타일 (480px 이하) */
 @media (max-width: 480px) {
     #search_box_overlay {
         position: fixed;
@@ -227,6 +254,5 @@ header {
         height: calc(100%);
         padding: 12px 12px;
         border: none;
-        
     }
 }

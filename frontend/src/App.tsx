@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainPage from './pages/MainPage';
-import SearchPage from './pages/SearchPage';
+import MainPage from './pages/MainPage/MainPage';
+import SearchPage from './pages/SearchPage/SearchPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import './App.css';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="*" element={<div> 오류 입니다 </div>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </Router>

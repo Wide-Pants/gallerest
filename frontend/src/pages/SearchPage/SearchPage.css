@@ -1,0 +1,27 @@
+#search-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100%;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#search_keyword {
+  font-size: 1.25rem;
+  color: #000000;
+  font-weight: bold;
+}
+
+#search_thing {
+  padding: 12px 24px;
+  color: #333;
+}
+
+#search_result_section {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}

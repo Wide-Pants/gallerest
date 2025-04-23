@@ -1,0 +1,216 @@
+#popular_scroll {
+    display: none;
+}
+
+@media screen and (min-width:1024px) {
+
+    /* hide 클래스가 없을 때 show 애니메이션을 재적용 */
+    #popular_scroll:not(.hide, .initial) {
+        animation: show 0.3s ease-in-out 1s forwards;
+    }
+
+    @keyframes hide {
+        0% {
+            right: 8px;
+            opacity: 1;
+        }
+
+        100% {
+            right: -100px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes show {
+        0% {
+            right: -100px;
+            opacity: 0;
+        }
+
+        100% {
+            right: 8px;
+            opacity: 1;
+        }
+    }
+
+    #popular_scroll {
+        top: 50%;
+        right: -100px;
+        opacity: 0;
+        animation: show 0s ease-in-out forwards;
+        position: absolute;
+        list-style: none;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transform: translate(0, -50%);
+        transform-origin: right center;
+        align-items: flex-end;
+    }
+
+    #popular_scroll li {
+        width: 16px;
+        padding: 0.2rem;
+        height: 16px;
+        font-size: 0;
+        transition: all 0.3s ease;
+        text-align: right;
+        background-color: #f0f0f0;
+        white-space: nowrap;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        transform-origin: right center;
+    }
+
+    #popular_scroll li:hover {
+        background-color: transparent;
+        font-size: 1.2rem;
+        width: auto;
+        min-width: 4rem;
+        padding-right: 1rem;
+    }
+
+    #popular_scroll li[data-active="true"] {
+        background-color: transparent;
+        font-size: 1.2rem;
+        width: auto;
+        min-width: 4rem;
+        padding-right: 1rem;
+        font-weight: bold;
+    }
+
+    #popular_scroll.initial {
+        top: 50%;
+        position: absolute;
+        list-style: none;
+        right: 0;
+        opacity: 0;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transform: translate(0, -50%);
+        transform-origin: right center;
+        align-items: flex-end;
+    }
+
+    #popular_scroll.hide {
+        top: 50%;
+        position: absolute;
+        list-style: none;
+        right: -100px;
+        opacity: 0;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transform: translate(0, -50%);
+        transform-origin: right center;
+        align-items: flex-end;
+        animation: hide 1s ease-in-out forwards;
+    }
+}
+    
+@media (min-width:480px) and (max-width:1024px) {
+
+    #popular_scroll:not(.hide, .initial) {
+        animation: show 0.3s ease-in-out 1s forwards;
+    }
+
+    @keyframes hide {
+        100% {
+            bottom: -25px;
+            opacity: 0;
+        }
+    }
+
+    @keyframes show {
+        100% {
+            bottom: 8px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes active {
+        100% {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    }
+
+    @keyframes inactive {
+        100% {
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
+
+    #popular_scroll {
+        display: flex;
+        bottom: 16px;
+        left: 50%;
+        position: absolute;
+        list-style: none;
+        gap: 16px;
+        flex-direction: row;
+        cursor: pointer;
+        transform: translate(-50%, 0);
+        transform-origin: center;
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    #popular_scroll.initial {
+        display: flex;
+        bottom: 16px;
+        left: 50%;
+        position: absolute;
+        list-style: none;
+        gap: 16px;
+        flex-direction: row;
+        cursor: pointer;
+        transform: translate(-50%, 0);
+        transform-origin: center;
+        align-items: flex-end;
+    }
+
+    #popular_scroll.hide {
+        display: flex;
+        position: fixed;
+        bottom: -45px;
+        left: 50%;
+        list-style: none;
+        gap: 16px;
+        flex-direction: row;
+        cursor: pointer;
+        transform: translate(-50%, 0);
+        transform-origin: center;
+        align-items: flex-end;
+    }
+
+    #popular_scroll li {
+        width: auto;
+        padding: 0.2rem;
+        height: 0.8rem;
+        border-radius: 10px;
+        text-align: center;
+        white-space: nowrap;
+        position: relative;
+        display: flex;
+        align-items: center;
+        transform-origin: center;
+    }
+
+    #popular_scroll li[data-active="true"] {
+        animation: active 0.5s linear forwards;
+        transform-origin: center;
+    }
+
+    #popular_scroll li[data-active="false"] {
+        animation: inactive 0.5s linear forwards;
+        transform-origin: center;
+    }
+}

@@ -10,6 +10,7 @@
     overflow: hidden;
     align-self: center;
     will-change: transform, opacity;
+    z-index: 50;
 }
 
 #main_search_bar>input {
@@ -78,6 +79,21 @@
 .keytext {
     color: #333;
     font-size: 14px;
+}
+
+#search_bar_background[data-state="do"]{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+#search_bar_background[data-state="donot"]{
+    display: none;
 }
 
 #main_search_bar #search_input_container>input {
