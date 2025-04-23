@@ -46,9 +46,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-body {
+body,
+html {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
   margin: 0;
   padding: 0;
+  -webkit-transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  overscroll-behavior: contain;
 }
 
 @media (prefers-color-scheme: light) {

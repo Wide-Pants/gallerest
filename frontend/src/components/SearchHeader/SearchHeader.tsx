@@ -4,7 +4,8 @@ import "./SearchHeader.css";
 interface SearchHeaderProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
-  handleSearch: (e?: React.FormEvent<HTMLFormElement>) => void;
+  handleSearch: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleHistorySearch: (item: string) => void;
   onClickLogo: () => void;
 }
 
@@ -12,6 +13,7 @@ const SearchHeader = ({
   searchTerm,
   setSearchTerm,
   handleSearch,
+  handleHistorySearch,
   onClickLogo,
 }: SearchHeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +32,9 @@ const SearchHeader = ({
       } else {
         page.style.overflow = "auto";
       }
+    }
+    if(!isMobile && page){
+      page.style.overflow = "auto";
     }
   }, [isMobile, isOpen]);
 
@@ -109,13 +114,9 @@ const SearchHeader = ({
               onChange={(e) => setSearchTerm(e.target.value)}
             />
 
-            <div
+            <button
+              type="submit"
               id="search_icon"
-              onClick={() => {
-                handleSearch();
-                loadHistory();
-                setIsOpen(false);
-              }}
             />
           </form>
           <div id="search_icon_container" data-open={isOpen}>
@@ -134,7 +135,7 @@ const SearchHeader = ({
             <h4 id="search_box_title">검색 히스토리</h4>
             <div id="search_box_history">
               {history.map((item, index) => (
-                <div key={index} className="search_box_history_item" onClick={() => {handleSearch(); setIsOpen(false);}}>
+                <div key={index} className="search_box_history_item" onClick={() => {handleHistorySearch(item); setIsOpen(false);}}>
                   <span>{item}</span>
                   <div className="search_box_history_item_close" onClick={(e) => {
                     e.stopPropagation();

@@ -44,8 +44,8 @@
   gap: 24px;
 }
 
-#main_slogan_container>h1,
-#main_slogan_container>p {
+#main_slogan_container > h1,
+#main_slogan_container > p {
   margin: 0;
 }
 
@@ -61,25 +61,41 @@
   justify-content: center;
 }
 
-@media screen and (max-width:768px) {
+#main-page > #main_logo > img {
+  position: fixed;
+  top: 8px;
+  left: 4px;
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 768px) {
   #main-page {
     justify-content: flex-start;
   }
 
   #main_center_section {
-    padding-top: 10rem;
+    padding-top: 16dvh;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     gap: 0.8rem;
   }
 
-  #main_slogan_container>h1 {
+  #main_slogan_container > h1 {
     font-size: 36px;
   }
 
   #main_slogan_container {
     gap: 12px;
+  }
+  #main-page > #main_logo > img {
+    width: 120px;
+    height: 60px;
   }
 }
 

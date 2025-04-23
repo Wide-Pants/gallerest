@@ -1,33 +1,69 @@
 .search_thumbnail {
   overflow: hidden; /* 이미지가 박스 바깥으로 나가지 않게 */
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: #000;
   width: 100%;
   height: 100%;
   border-radius: 8px;
   cursor: pointer;
+  padding: 4px
 }
 
-.search_thumbnail>img {
+.search_thumbnail > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
-  transform: scale(1); 
+  transform: scale(1);
+  border-radius: 8px;
 }
 
-.search_thumbnail:hover>img {
-  transform: scale(1.05); 
+.search_thumbnail  p {
+  width: calc(100% - 16px);
+  color: #333;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  transform: scale(1);
+  font-size: 14px;
+  padding: 12px 4px 4px 4px;
+  margin:0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.search_thumbnail:hover > img {
+  transform: scale(1.02);
 }
 
 @keyframes skeleton-animation {
   0% {
-    background-color: linear-gradient(to right, #DDD 0%, #DDD 50%, #f0f0f0 100%);
+    background-color: linear-gradient(
+      to right,
+      #ddd 0%,
+      #ddd 50%,
+      #f0f0f0 100%
+    );
   }
   50% {
-    background-color: linear-gradient(to right, #DDD 0%, #DDD 50%, #f0f0f0 100%);
+    background-color: linear-gradient(
+      to right,
+      #ddd 0%,
+      #ddd 50%,
+      #f0f0f0 100%
+    );
   }
   100% {
-    background-color: linear-gradient(to right, #DDD 0%, #DDD 50%, #f0f0f0 100%);
+    background-color: linear-gradient(
+      to right,
+      #ddd 0%,
+      #ddd 50%,
+      #f0f0f0 100%
+    );
   }
 }
 
@@ -35,7 +71,7 @@
   display: inline-block;
   width: 100%;
   height: 100%;
-  background-color: #DDD;
+  background-color: #ddd;
   border-radius: 8px;
   animation: skeleton-animation 1.5s ease-in-out infinite;
 }

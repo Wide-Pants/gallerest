@@ -1,5 +1,6 @@
 import React, {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -23,7 +24,7 @@ function MainPage() {
   const [mode, setMode] = useState<MainPageModes>("idle");
   const sectionRef = useRef<HTMLDivElement>(null);
   const sloganRef = useRef<HTMLDivElement>(null);
-
+  
   useEffect(() => {
     if (sectionRef.current) {
       if (mode === "assemble") {
@@ -60,6 +61,9 @@ function MainPage() {
   return (
     <ModeContext.Provider value={{ mode, setMode }}>
       <div id="main-page">
+        <div id="main_logo">
+          <img src={'/icons.png'} alt="logo" />
+        </div>
         <div id="blur-board" />
         <PopularScrollBoard />
         <section id="main_center_section" ref={sectionRef}>

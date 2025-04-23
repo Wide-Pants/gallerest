@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import "./MasomryLayout.css";
 
 type MasonryLayoutProps<T extends object> = {
@@ -18,16 +24,18 @@ const MasonryLayout = <T extends { [key: string]: any }>({
   renderItem,
   onLoadMore,
 }: MasonryLayoutProps<T>) => {
-  const [containerWidth, setContainerWidth] = useState<number>(
-    window.innerWidth - 96
-  );
+  const [columnCount, setColumnCount] = useState<number>(4);
   const containerRef = useRef<HTMLDivElement>(null);
   const [shortestColumnIndex, setShortestColumnIndex] = useState<number>(-1);
 
-  const columnCount = useMemo(() => {
-    const count = Math.max(1, Math.floor(containerWidth / (columnWidth + gap)));
-    return count > 2 ? count : 2;
-  }, [items, containerWidth, columnWidth, gap]);
+  const calculateColumnCount = useCallback(
+    (sectionWidth: number) => {
+      if (sectionWidth === null) return;
+      const count = Math.max(1, Math.floor(sectionWidth / (columnWidth + gap)));
+      return count > 2 ? count : 2;
+    },
+    [columnWidth, gap]
+  );
 
   const columns = useMemo(() => {
     const cols: T[][] = Array.from({ length: columnCount }, () => []);
@@ -65,26 +73,29 @@ const MasonryLayout = <T extends { [key: string]: any }>({
   }, [onLoadMore, shortestColumnIndex]);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth - 96);
-      } else {
-        setContainerWidth(window.innerWidth - 96);
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const newColumnCount = calculateColumnCount(entry.contentRect.width);
+        setColumnCount(newColumnCount ?? 2);
       }
-    };
+    });
 
-    handleResize(); // 초기 실행
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => resizeObserver.disconnect();
   }, []);
 
   return (
     <div
       ref={containerRef}
       id="masonry-column-container"
-      style={{
-        "--gap": `${gap}px`,
-      } as React.CSSProperties}
+      style={
+        {
+          "--gap": `${gap}px`,
+        } as React.CSSProperties
+      }
     >
       {columns.map((col, colIdx) => {
         const isShortestColumn = colIdx === shortestColumnIndex;
@@ -92,10 +103,12 @@ const MasonryLayout = <T extends { [key: string]: any }>({
           <div
             key={"col-" + colIdx}
             className="masonry-column"
-            style={{
-              "--gap": `${gap}px`,
-              "--columns": columnCount,
-            } as React.CSSProperties}
+            style={
+              {
+                "--gap": `${gap}px`,
+                "--columns": columnCount,
+              } as React.CSSProperties
+            }
           >
             {col.map((item, idx) => (
               <div
@@ -114,11 +127,10 @@ const MasonryLayout = <T extends { [key: string]: any }>({
                     key={"skeleton-" + colIdx + "-" + idx}
                     className="masonry-skeleton"
                     style={{
-                      width: columnWidth,
+                      width: "100%",
                       height: columnWidth,
                       backgroundColor: "#f0f0f0",
                       borderRadius: "8px",
-                      animation: "pulse 1.5s ease-in-out infinite",
                     }}
                   />
                 ))}

@@ -37,6 +37,9 @@
     background-size: contain;
     background-position: center;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 #under_line {
@@ -115,6 +118,7 @@
         }
     }
     #main_search_bar{
+        min-width: 320px;
         width: calc(100vw - 128px);
     }
 
