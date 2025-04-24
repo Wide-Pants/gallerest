@@ -3,14 +3,6 @@ import { motion } from "framer-motion";
 import "./ImageDetail.css";
 import { useImageDetail } from "../../hooks/useImageDetail";
 
-type Image = {
-  title: string;
-  link: string;
-  sizewidth: number;
-  sizeheight: number;
-  thumbnail: string;
-};
-
 interface ImageDetailProps {
   selectedImage: Image | null;
   onClose: () => void;

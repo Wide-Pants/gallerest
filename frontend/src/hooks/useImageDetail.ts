@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, PanInfo, useAnimation } from "framer-motion";
 
-type Image = {
-  title: string;
-  link: string;
-  sizewidth: number;
-  sizeheight: number;
-  thumbnail: string;
-};
-
 interface UseImageDetailProps {
   selectedImage: Image | null;
   onClose: () => void;

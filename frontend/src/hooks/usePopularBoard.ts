@@ -1,13 +1,5 @@
 import { useMemo, useState, useCallback, useRef, useEffect } from "react";
 
-type Image = {
-  title: string;
-  link: string;
-  sizewidth: number;
-  sizeheight: number;
-  thumbnail: string;
-};
-
 interface UsePopularBoardProps {
   keyword: string | null;
   images: Record<string | "null", Image[]>;

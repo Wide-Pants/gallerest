@@ -1,14 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useMode } from "../pages/MainPage/MainPage";
 
-type Image = {
-  title: string;
-  link: string;
-  sizewidth: number;
-  sizeheight: number;
-  thumbnail: string;
-};
-
 export const usePopularScrollBoardSection = () => {
   const [keyword, setKeyword] = useState<string | null>(null);
   const [images, setImages] = useState<Record<string | "null", Image[]>>({});

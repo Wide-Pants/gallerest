@@ -2,14 +2,6 @@ import React from "react";
 import "./SearchThumnail.css";
 import { useSearchThumnail } from "../../hooks/useSearchThumnail";
 
-type Image = {
-  title: string;
-  link: string;
-  sizewidth: number;
-  sizeheight: number;
-  thumbnail: string;
-};
-
 const SearchThumnail = ({
   item,
   onClick,

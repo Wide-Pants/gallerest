@@ -7,14 +7,6 @@ const ANIMATION_DURATION = 800; // ms
 const INITIAL_OFFSET = 1024; // px
 const BASE_IMAGE_WIDTH = 360; // px
 
-interface Image {
-  link: string;
-  title: string;
-  thumbnail: string;
-  sizewidth: number;
-  sizeheight: number;
-}
-
 interface PopularBoardProps {
   keyword: string | null;
   images: Record<string | "null", Image[]>;
