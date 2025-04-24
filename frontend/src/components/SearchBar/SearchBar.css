@@ -34,7 +34,7 @@
 #search_icon {
     width: 36px;
     height: 36px;
-    background-image: url("../../../public/Search.png");
+    background-image: url("/Search.png");
     background-size: contain;
     background-position: center;
     cursor: pointer;

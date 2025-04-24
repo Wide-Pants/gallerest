@@ -52,7 +52,7 @@ const ImageDetail = ({ selectedImage, onClose }: ImageDetailProps) => {
               role="button"
               aria-label="닫기"
             >
-              X
+              <img src={'/CloseBtn.png'} alt="닫기" />
             </div>
           </div>
           <motion.div 

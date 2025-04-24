@@ -44,7 +44,7 @@ const SearchHeader = ({
           >
             {isOpen && (
               <div id="search_box_close" onClick={() => setIsOpen(false)}>
-                {"<"}
+                <img src={'/BackArrowBtn.png'} alt="닫기" />
               </div>
             )}
             <input
@@ -89,7 +89,7 @@ const SearchHeader = ({
                       deleteHistory(item);
                     }}
                   >
-                    {"X"}
+                    <img src={'/CloseBtn.png'} alt="삭제" />
                   </div>
                 </div>
               ))}
