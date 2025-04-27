@@ -1,4 +1,3 @@
-import React from "react";
 import PopularBoard from "./PopularBoard";
 import PopularScroll from "./PopularScroll";
 import { usePopularScrollBoardSection } from "../../hooks/usePopularScrollBoardSection";
