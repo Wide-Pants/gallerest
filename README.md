@@ -1,12 +1,58 @@
-# React + Vite
+# Gallerest - 이미지 갤러리 웹 애플리케이션
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 프로젝트 개요
+Gallerest는 사용자 친화적인 인터페이스를 제공하는 이미지 갤러리 웹 애플리케이션입니다.
+React와 Vite를 기반으로 구축되었으며, Vercel 서버리스를 통한 API와 함께께 Vercel을 통해 배포됩니다.
 
-Currently, two official plugins are available:
+## 주요 기능
+- 이미지 갤러리 뷰
+- 반응형 디자인
+- 이미지 로딩 최적화
+- API 기반 이미지 데이터 관리
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 기술 스택
+### 프론트엔드
+- React
+- Vite
+- TypeScript
+- CSS Modules
 
-## Expanding the ESLint configuration
+### 백엔드
+- Vercel Severless
+- Node.js
+- Express
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 배포
+- Vercel
+
+## 주요 구현 과제
+1. **이미지 최적화**
+   - 이미지 로딩 성능 개선
+   - 반응형 이미지 처리
+   - 지연 로딩 구현
+
+2. **사용자 경험**
+   - 직관적인 UI/UX 설계
+   - 반응형 레이아웃 구현
+   - 로딩 상태 표시
+
+3. **API 통합**
+   - RESTful API 설계
+   - 에러 처리 구현
+   - 데이터 캐싱 전략 수립
+
+## 성과
+- 이미지 갤러리 뷰 구현 완료
+- 반응형 디자인 적용으로 모바일/데스크톱 환경 지원
+- API를 통한 이미지 데이터 동적 로딩 구현
+- 사용자 경험 개선을 위한 로딩 상태 표시 기능 구현
+
+## 배포
+- 프로젝트는 Vercel을 통해 배포됩니다.
+- 배포 URL: [배포경로]
+
+## 라이선스
+MIT License
+
+## 문의
+프로젝트에 대한 문의사항이 있으시면 이슈를 생성해주세요.
