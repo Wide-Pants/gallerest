@@ -14,9 +14,12 @@
     position: sticky;
     width: 40vw;
     min-width: 400px;
+    height: calc(100vh - 80px);
     background-color: #ddd;
     right: 0;
     top: 80px;
+    display: flex;
+    flex-direction: column;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     z-index: 100;
@@ -150,6 +153,8 @@
     background-color: #fff;
     left: 0px;
     top: 88px;
+    display: flex;
+    flex-direction: column;
     border-top: 1px solid #ddd;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
